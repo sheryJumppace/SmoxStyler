@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.UpdateAddressActivity">
+
+    <ImageView
+        android:id="@+id/imgBack"
+        style="@style/TintColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_8sdp"
+        android:src="@drawable/ic_icon_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/plant_detail_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBack">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/update_your_address"
+                android:textSize="@dimen/_16sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/txtAddress"
+                style="@style/TextColor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/rect_border"
+                android:gravity="start"
+                android:hint="@string/edit_shop_address"
+                android:maxLength="200"
+                android:padding="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:textAlignment="textStart" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/defaultSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8sdp"
+                android:text="Want to sell products?"
+                android:textSize="@dimen/_12sdp"
+                android:theme="@style/CTSwitch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNumber"
+                app:switchPadding="@dimen/_10sdp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pickupAddressLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Product pick-up address"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etAddress1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_border"
+                    android:hint="House no., Building no. etc"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textCapSentences"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etAddress2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_border"
+                    android:hint="Area"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textCapSentences"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddress1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_border"
+                    android:focusable="false"
+                    android:hint="City"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddress2" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/rect_border"
+                    android:enabled="false"
+                    android:hint="State"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:padding="@dimen/_8sdp"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etCity" />
+
+
+                <EditText
+                    android:id="@+id/txtZipCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/rect_border"
+                    android:hint="Zip Code"
+                    android:padding="@dimen/_8sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etState" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/login_shape"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/fui_button_text_save"
+                android:textAlignment="center"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/repeatPassword" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

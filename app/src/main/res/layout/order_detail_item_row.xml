@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="order"
+            type="com.ibcemobile.smoxstyler.responses.OrderItem.OrderItemRow" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_2sdp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/image"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_4sdp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:productUrl="@{order.mainImage}"
+                    android:contentDescription="@string/app_name" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llAboutView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/txtDiscPrice"
+                android:layout_toEndOf="@+id/image"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtBn"
+                    style="@style/TextColorLightBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="@{order.productName}"
+                    android:textSize="@dimen/_14ssp" />
+
+                <TextView
+                    android:id="@+id/txtTitleBar"
+                    style="@style/TextColorGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@{String.format(`Quantity- `+order.quantity)}" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@+id/txtDiscPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/_12ssp"
+                android:layout_toStartOf="@+id/txtTotalPay"
+                android:text="@{String.format(`$`+order.actualPrice)}"
+                android:padding="@dimen/_5sdp" />
+            <TextView
+                android:id="@+id/txtTotalPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/_14ssp"
+                style="@style/TextColor"
+                android:text="@{String.format(`$`+order.discountedPrice)}"
+                android:padding="@dimen/_5sdp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

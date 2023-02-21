@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="@dimen/_6sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_photo_picker"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPhoto"
+            style="@style/TextColor"
+            android:padding="@dimen/_6sdp"
+            android:text="@string/take_a_photo"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/lightGray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGallery"
+            style="@style/TextColor"
+            android:padding="@dimen/_6sdp"
+            android:text="@string/select_from_gallery"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_13ssp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnCancel"
+        style="@style/TextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:background="@drawable/bg_photo_picker"
+        android:padding="@dimen/_6sdp"
+        android:text="@string/cancel"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/_13ssp" />
+</LinearLayout>

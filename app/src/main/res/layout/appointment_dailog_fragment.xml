@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_16sdp"
+    app:cardElevation="@dimen/_4ssp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/txtMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_5ssp"
+            android:text="@string/are_you_sure_want_to_complete"
+            android:textSize="@dimen/_15ssp" />
+
+        <LinearLayout
+            android:id="@+id/llStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/txtMessage"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/txtDecline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/rect_border"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/cancel"
+                android:textColor="@android:color/holo_red_light" />
+
+            <TextView
+                android:id="@+id/txtApprove"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:background="@drawable/rect_green_bg"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/txt_complete" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

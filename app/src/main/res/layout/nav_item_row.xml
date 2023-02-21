@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rlRoot"
+    android:paddingTop="@dimen/_6sdp"
+    android:paddingBottom="@dimen/_6sdp"
+    android:paddingStart="@dimen/_4sdp">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_centerVertical="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_nav_styler" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@+id/img"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Styler"
+            android:textColor="@color/light_white"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/txtSubHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_3sdp"
+            android:text="See , edit your profile"
+            android:textColor="@color/light_white" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            style="@style/TintColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_icon_arrow_back" />
+
+        <TextView
+            android:id="@id/TitleBar"
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/booking_preferences"
+            android:textSize="@dimen/_15ssp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/cardFooter"
+            android:layout_below="@+id/TitleBar"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginEnd="-10dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_130sdp"
+                            android:layout_margin="@dimen/_5sdp"
+                            app:cardCornerRadius="@dimen/_5sdp"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:id="@+id/imgProfile"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/small_placeholder"
+                                android:contentDescription="@string/app_name" />
+
+                            <TextView
+                                android:id="@+id/txtAddPhoto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:drawablePadding="@dimen/_8sdp"
+                                android:text="@string/your_photo"
+                                android:textSize="@dimen/_12ssp"
+                                app:drawableEndCompat="@drawable/ic_baseline_edit_24" />
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card2"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_80sdp"
+                            app:cardCornerRadius="@dimen/_8sdp"
+                            app:cardUseCompatPadding="true">
+
+                            <ImageView
+                                android:id="@+id/imgLogo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/small_placeholder" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/TextColor"
+                            android:id="@+id/txtAdd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/card2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:layout_marginBottom="@dimen/_16sdp"
+                            android:drawablePadding="@dimen/_8sdp"
+                            android:text="@string/your_logo"
+                            android:textSize="@dimen/_12ssp"
+                            app:drawableEndCompat="@drawable/ic_baseline_edit_24" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card1"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginEnd="-10dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/txtTitle"
+                            style="@style/TextColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/services_offered"
+                            android:textSize="@dimen/_14ssp" />
+
+
+                        <ImageView
+                            android:id="@+id/fabAddService"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:src="@drawable/ic_fab_add" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@id/rvCat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fabAddService"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentStart="true"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_category_row" />
+
+                        <TextView
+                            android:id="@+id/tvNotFound"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rvCat"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/_25sdp"
+                            android:gravity="center_horizontal"
+                            android:text="@string/no_services_selected"
+                            android:textAllCaps="true"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvService"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_250sdp"
+                            android:layout_below="@+id/rvCat" />
+
+
+
+                        <TextView
+                            android:id="@+id/txtServiceType1"
+                            style="@style/TextColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rvService"
+                            android:text="@string/select_type"
+                            android:visibility="gone"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/llHairColorType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtServiceType1"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/round_corner_selected"
+                                android:gravity="center"
+                                android:padding="@dimen/_8sdp"
+                                android:text="@string/regular_20_00"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:layout_weight="1"
+                                android:background="@drawable/fee_background"
+                                android:gravity="center"
+                                android:padding="@dimen/_8sdp"
+                                android:text="@string/regular_20_00"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/fee_background"
+                                android:gravity="center"
+                                android:padding="@dimen/_8sdp"
+                                android:text="@string/regular_20_00"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-10dp"
+            android:layout_marginEnd="-10dp"
+            android:layout_marginBottom="-20dp"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/txtHint"
+                    style="@style/TextColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="@string/cancellation_fee"
+                    android:textSize="@dimen/_14ssp" />
+
+                <EditText
+                    android:id="@+id/etCancellationFee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtHint"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@drawable/fee_background"
+                    android:hint="@string/cancellation_fee"
+                    android:minHeight="48dp"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_8sdp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/etCancellationFee"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="@drawable/rect_yellow_bg"
+                    android:text="@string/done" />
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/TextColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="@string/register_with_facebook"
+                    android:textSize="@dimen/_16sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/txt_FullName"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="First Name"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <EditText
+                    android:id="@+id/txtFirstName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:backgroundTint="#757575"
+                    android:drawableStart="@drawable/ic_user"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="Add your first name"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textAlignment="textStart"
+                    android:textColorHint="#757575"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="@id/textView3"
+                    app:layout_constraintStart_toStartOf="@+id/txt_FullName"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_FullName" />
+
+
+                <TextView
+                    android:id="@+id/txt_hint_LastName"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Last Name"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="@+id/txtFirstName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
+
+                <EditText
+                    android:id="@+id/txtLastName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:backgroundTint="#757575"
+                    android:drawableStart="@drawable/ic_user"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="Add your last name"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textAlignment="textStart"
+                    android:textColorHint="#757575"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="@id/textView3"
+                    app:layout_constraintStart_toStartOf="@+id/txt_hint_LastName"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_hint_LastName" />
+
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/email_address"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="@+id/txtLastName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLastName" />
+
+                <EditText
+                    android:id="@+id/txtEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:backgroundTint="#757575"
+                    android:drawableStart="@drawable/ic_envelope"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:ems="10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/email_address"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textAlignment="textStart"
+                    android:textColorHint="#757575"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintEnd_toEndOf="@id/textView3"
+                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/login_shape"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/register"
+                    android:textAlignment="center"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_16sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.52"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+
+    </RelativeLayout>
+</layout>

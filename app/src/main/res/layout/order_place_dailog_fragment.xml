@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_16sdp"
+    app:cardElevation="@dimen/_4ssp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/imgMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/fui_ic_check_circle_black_128dp" />
+
+        <TextView
+            android:id="@+id/txtThank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgMessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_5ssp"
+            android:text="Thank You"
+            style="@style/TextColor"
+            android:textSize="@dimen/_15ssp" />
+
+        <TextView
+            android:id="@+id/txtMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtThank"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_5ssp"
+            android:text="Order Successfully Placed"
+            android:textSize="@dimen/_15ssp" />
+
+        <TextView
+            android:id="@+id/txtBtn"
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMessage"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:background="@drawable/rect_yellow_bg"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Go to Order List" />
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

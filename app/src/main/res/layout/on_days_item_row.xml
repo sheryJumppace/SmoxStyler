@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="item"
+            type="com.ibcemobile.smoxstyler.model.OpenDay" />
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:background="@drawable/rect_border"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/txtStartTime"
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11ssp"
+            android:text="@{@string/format_open_time(item.startTime,item.endTime)}"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/txtDays"
+            style="@style/TextColorGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtStartTime"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_11ssp"
+            android:text="@{item.day}" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@+id/switch_button"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtST"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/switch_button"
+                android:textSize="@dimen/_11ssp"
+                android:padding="@dimen/_3sdp"
+                android:text="Edit"
+                android:textColor="#0068AF"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <com.suke.widget.SwitchButton
+            android:id="@+id/switch_button"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:checked='@{item.isClosed ? false : true}'
+            app:sb_background="@color/lightGray"
+            app:sb_show_indicator="false" />
+
+
+    </RelativeLayout>
+</layout>

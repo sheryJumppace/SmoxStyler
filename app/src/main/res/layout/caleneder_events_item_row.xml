@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="event"
+            type="com.ibcemobile.smoxstyler.model.Event" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_4ssp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgEvents"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_110sdp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:imageUrl='@{event.image}'
+                app:isCircle="@{false}"
+                app:placeHolder="@{@drawable/small_placeholder}" />
+
+            <TextView
+                android:id="@+id/txtEventsName"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/imgEvents"
+                android:text="@{event.event}"
+                android:textSize="@dimen/_12ssp" />
+
+            <ImageView
+                android:id="@+id/imgTrash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:onClick="@{clickListener}"
+                android:src="@drawable/trash" />
+
+            <ImageView
+                android:id="@+id/imgEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:onClick="@{clickListener}"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:src="@drawable/ic_baseline_edit_24" />
+
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/txtEventsName"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_50sdp"
+                android:layout_toEndOf="@+id/imgEvents"
+                android:background="#E1E1E1" />
+
+
+            <LinearLayout
+                android:id="@+id/llStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v1"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/imgEvents"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp">
+
+                <TextView
+                    style="@style/TextColorGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start date" />
+
+                <TextView
+                    android:id="@+id/txtStartDate"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@{event.startDate}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v1"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/llStartDate"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp">
+
+                <TextView
+                    style="@style/TextColorGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="End date" />
+
+                <TextView
+                    android:id="@+id/txtEndDate"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@{event.endDate}" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

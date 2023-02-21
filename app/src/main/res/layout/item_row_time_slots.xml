@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="time"
+            type="String"/>
+    </data>
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/txtTime"
+        style="@style/TextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/bg_slot_un_select"
+        android:gravity="center"
+        android:textSize="@dimen/_10ssp"
+        android:onClick="@{clickListener}"
+        android:padding="@dimen/_8sdp"
+        android:text="@{time.toUpperCase()}">
+
+
+    </TextView>
+</layout>

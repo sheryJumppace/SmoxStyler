@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="data"
+            type="com.ibcemobile.smoxstyler.responses.OrderResponse.OrderResult" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/ll_info"
+        android:layout_width="match_parent"
+        android:onClick="@{clickListener}"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_alignParentEnd="true"
+            app:cardCornerRadius="@dimen/_8sdp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:productUrl="@{data.productImage}"
+                android:src="@mipmap/small_placeholder" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/ProductName"
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/card"
+            android:text="@{String.format(`Order Purchased from ` +data.barberFname+ ``+ data.barberLname)}"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/txtProductName"
+            style="@style/TextColorGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ProductName"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@{data.productName}"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Product Name" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llAboutView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtProductName"
+            android:layout_marginTop="@dimen/_4sdp">
+
+            <TextView
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{@string/format_price(data.getTotal)}"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/productQuantity"
+                style="@style/TextColorGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="@{String.format(data.quantity+` items add`)}" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <TextView
+            android:id="@+id/txtOrderDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llAboutView"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_toStartOf="@+id/txtOrderID"
+            android:text="@{String.format(`Delivering date `+data.getDate)}"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txtOrderID"
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llAboutView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@{String.format(`Order#`+data.id)}"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/txtTrackOrder"
+            style="@style/TextColor"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtOrderDateTime"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/rect_border_yellow"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:onClick="@{clickListener}"
+            android:text="Track order" />
+
+        <TextView
+            android:id="@+id/txtSeeItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtOrderID"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_toStartOf="@+id/txtOrderID"
+            android:onClick="@{clickListener}"
+            android:text="View Items"
+            android:textColor="@color/green"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_below="@+id/txtTrackOrder"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+    </RelativeLayout>
+
+
+
+</layout>

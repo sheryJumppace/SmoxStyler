@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.content.Context" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isCanDelete"
+            type="Boolean" />
+
+        <variable
+            name="isShowService"
+            type="Boolean" />
+
+        <variable
+            name="appointment"
+            type="com.ibcemobile.smoxstyler.model.Appointment" />
+    </data>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:outlineSpotShadowColor="@color/green"
+    app:cardElevation="@dimen/_5ssp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="@dimen/_10sdp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{appointment.appointment_date}"
+            android:layout_margin="@dimen/_8sdp"
+            style="@style/TextColor"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_60sdp"
+            app:imageUrl='@{appointment.image}'
+            app:placeHolder="@{@drawable/small_placeholder}"
+            app:isCircle="@{false}"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/txtEventsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{appointment.user.firstName}"
+            android:layout_margin="@dimen/_4sdp"
+            style="@style/TextColor"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/format_price(appointment.price)}"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/_5sdp"
+            style="@style/TextColor"
+            />
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/trash"
+            android:onClick="@{clickListener}"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:contentDescription="@string/app_name" />
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:background="@drawable/rect_border"
+            android:gravity="center"
+
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="Men"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_15ssp" />
+
+    </RelativeLayout>
+</layout>
+

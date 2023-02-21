@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smox Pro</string>
+    <string name="register">Register</string>
+    <string name="welcome_text">Welcome Back</string>
+    <string name="styler">Styler</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="mobile">Mobile</string>
+    <string name="add_your_mobile_number">Add your mobile number</string>
+    <string name="or_register_using">Or register using</string>
+    <string name="already_have_account"><font color="#FFFFFF">Already have an account ?</font> <font color="#FFBB0C">LOGIN</font></string>
+    <string name="facebook_app_id">2491808960885470</string>
+
+    <string name="fb_login_protocol_scheme">fb2491808960885470</string>
+
+    <string name="sender_id">768706859889</string>
+    <string name="login_as">Login as</string>
+    <string name="wlcm_back">Welcome Back</string>
+    <string name="forget_pass">Forget Password ?</string>
+    <string name="login">Login</string>
+    <string name="or_login_using">Or Login using</string>
+
+    <string name="do_not_have_account"><font color="#FFFFFF">Don\'t have an account?</font> <font color="#FFBB0C">REGISTER</font></string>
+    <string name="err_short_bio">Please type a short bio</string>
+
+    <string name="forgot_password">FORGET PASSWORD</string>
+    <string name="forgot_password_instruction">Enter the mobile number to get the otp</string>
+    <string name="send">Send</string>
+    <string name="upnext">Up Next</string>
+    <string name="calendar">Calender</string>
+    <string name="funds">Funds</string>
+    <string name="smoxtalk">Smox</string>
+
+
+    <string name="complete_the_payment">
+    <font color="#0098FF">paymentlink</font>
+    <font color="#FFFFFF">share this link to the customer to complete the payment</font>
+    </string>
+
+
+    <string name="facebook_link_hint">
+        <font color="#757575">How to get facebook link</font>
+        <font color="#0098FF">click here...</font>
+    </string>
+
+
+    <string name="packed_shipped"><![CDATA[Packed & Shipped]]></string>
+    <string name="title_activity_edit_product">EditProductActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_social_media">SocialMediaActivity</string>
+
+
+    <string name="dlg_loading">Loading</string>
+    <string name="dlg_restoring_chat_session">Restoring chat session…</string>
+    <string name="dlg_restoring_chat_session_logout">Restoring session and logout</string>
+    <string name="dlg_login">Login…</string>
+    <string name="dlg_retry">Retry</string>
+    <string name="dlg_choose_image_from">Select photo from…</string>
+    <string name="create_chat">Creating chat…</string>
+
+    <string name="channel_name">Smox Pro</string>
+    <string name="channel_description">Smox Pro Notification</string>
+    <string name="rate">Rate</string>
+    <!--Error strings-->
+    <string name="error_qb_credentials_empty">Credentials are wrong or empty. You have to set:
+        Application ID, Authentication Key, Authentication Secret, Account Key in constants in App.java
+        and you have to set Sender ID in the string resources to launch application.
+        If you haven\'t them you can register new account and application at https://admin.quickblox.com
+        then put Application credentials from Overview page + Account key from https://admin.quickblox.com/account/settings</string>
+    <string name="error_chat_credentails_empty">Some parameter for Chat Settings is wrong. Please check the Chat Settings</string>
+    <string name="error_connection">Connection failed. Please check your internet connection.</string>
+    <string name="error_response_timeout">No response received within reply timeout</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="no_server_connection">Server connection timeout</string>
+    <string name="error_load_image">Error load image</string>
+    <string name="title_terms">Terms and Conditions</string>
+    <string name="txt_done">Done</string>
+    <string name="currently_product_no_found">Currently there are no products</string>
+    <string name="currently_no_appointment">Currently there are no Appointments</string>
+    <string name="currently_no_events">Currently there are no Events</string>
+    <string name="edit_product">Edit Product</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="select_from_gallery">Select from gallery</string>
+    <string name="ok">OK</string>
+    <string name="currently_there_are_no_reviews">Currently there is no review</string>
+    <string name="no_services_selected">No Service Found</string>
+    <string name="title_activity_appointment_detail">Appointment Detail</string>
+    <string name="contact">Contact</string>
+    <string name="location">Location</string>
+    <string name="official_date">Official Date</string>
+    <string name="send_payment_request">Send payment request</string>
+    <string name="pay_now">Pay now</string>
+    <string name="type_in_the_reason_you_would_like_to_show_to_the_clients">Type in the reason you would like to show to the clients.</string>
+    <string name="add">Add</string>
+    <string name="err_event">Event error</string>
+    <string name="err_subscribe">Subscribe Error</string>
+    <string name="products">Products</string>
+
+    <string name="format_open_time">%1$s to %2$s</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAcT5skfyEGHN3Mn5h3yubSzqxTYO41lUc
+    </string>
+    <string name="edit_shop_address">Edit Shop Address</string>
+    <string name="edit_bio">Edit Bio</string>
+    <string name="my_barber">Profile</string>
+    <string name="reconnect_alert">Reconnecting in %s seconds</string>
+
+
+    <string name="new_chat_created">%s created new chat </string>
+    <string name="occupant_added">%s added %s</string>
+    <string name="created_new_dialog">%s created new dialog with: %s</string>
+    <string name="occupant_left">%s has left</string>
+
+    <string name="chat_still_joining">You\'re still joining a group chat, please wait a bit</string>
+    <string name="chat_error_send_message">Can\'t send a message, You are not connected to chat</string>
+    <string name="search_friends_by_name">Search friends by name</string>
+
+    <string name="placeholder_username_you">%s (you)</string>
+    <string name="error_recreate_session">Login Chat error</string>
+
+
+    <string name="splash_create_session_error">Create session errors:</string>
+
+    <string name="login_select_user_for_login">Select User for Login to Chat</string>
+    <string name="login_cant_obtain_users">Can\'t obtain users errors</string>
+    <!--<string name="login_chat_login_error">Login Chat error. Please relogin. Error</string>-->
+    <string name="login_chat_login_error">Login failed, Please re-login</string>
+    <string name="login_welcoming_message">Please enter username and password.</string>
+    <string name="login_hint_login">Login</string>
+    <string name="login_hint_username">Username</string>
+    <string name="login_sign_up_error">Sign up error.</string>
+    <string name="login_data_error">Wrong login</string>
+    <string name="username_data_error">Wrong username</string>
+
+
+    <string name="permission_title_rationale">Permission needed</string>
+    <string name="permission_read_storage_rationale">Storage read permission is needed to pick files.</string>
+    <string name="permission_write_storage_rationale">Storage write permission is needed to save the image.</string>
+    <string name="permission_read_contacts_rationale">CONTACTS permission allows us to Access CONTACTS app.</string>
+
+    <string name="toast_cannot_retrieve_selected_image">Cannot retrieve selected image</string>
+    <string name="toast_cannot_retrieve_cropped_image">Cannot retrieve cropped image</string>
+    <string name="toast_unexpected_error">Unexpected error</string>
+    <string name="label_select_picture">Select Picture</string>
+    <string name="label_select_video">Select Video</string>
+    <string name="subscribe_success">Subscribe Success</string>
+
+    <string name="format_minute">%d mins</string>
+    <string name="format_price">$%.02f</string>
+    <string name="format_rating">%d</string>
+    <string name="format_ratings">(%.1f) %d Ratings</string>
+    <string name="format_time">Time: %s</string>
+    <string name="format_date">Date: %s</string>
+    <string name="format_username"><font color='green'>$</font><font color='white'>%s</font></string>
+    <string name="format_quantity">%d</string>
+    <string name="format_fee">%d%%</string>
+    <string name="format_event">Event: %s</string>
+    <string name="format_start_at">Start: %s</string>
+    <string name="format_end_at">End: %s</string>
+    <string name="itemCount">%d -Item Added</string>
+    <string name="product_err_image">Select Image</string>
+    <string name="hour_edit">Edit</string>
+    <string name="format_full_name">%s  %s</string>
+    <string name="currently_there_are_no_services">Currently there is no services</string>
+    <string name="no_events">Currently there is no events</string>
+    <string name="notification_title">Quickblox Chat Notification</string>
+    <string name="n_a">N/A</string>
+    <string name="start_hour_edit">Edit start hour</string>
+    <string name="end_hour_edit">Edit end hour</string>
+    <string name="dynamic_link_domain">smox.page.link/</string>
+    <string name="text_stripe_public_key">Stripe Public Key</string>
+    <string name="currently_product_no_fund">Currently there is no Payment History</string>
+    <string name="pick_contact">Pick Contact</string>
+    <string name="choose_service">Choose Service</string>
+    <string name="available_time_slot">Available time slot</string>
+    <string name="type_here">type here…</string>
+    <string name="book_appointment">Book Appointment</string>
+    <string name="add_your_logo_profile_picture_services">Add Your Logo,Profile Picture,Services…</string>
+    <string name="check_location_edit_profile">Check location , Edit profile</string>
+    <string name="your_open_days_off_days_holidays"><![CDATA[Your Open days & Off days(Holidays)]]></string>
+    <string name="no_subscription">You have no subscription</string>
+    <string name="subscription_add">"Your Subscription will end on "</string>
+    <string name="stripe_complete">Your Stripe configuration Completed</string>
+    <string name="stripe_pending">Your Stripe configuration is pending</string>
+    <string name="txtupdate">Update</string>
+    <string name="holidays_name">Holidays name</string>
+    <string name="booking_preferences">Booking preferences</string>
+    <string name="your_photo">Your Photo</string>
+    <string name="your_logo">Your logo</string>
+    <string name="services_offered">Services offered</string>
+    <string name="select_type">Select type</string>
+    <string name="regular_20_00">Regular($20.00)</string>
+    <string name="cancellation_fee">Cancellation fee(in %)</string>
+    <string name="_10">10</string>
+    <string name="done">Done</string>
+    <string name="select_category">Select Category</string>
+    <string name="add_service">Add Service</string>
+    <string name="description_here">Description here</string>
+    <string name="duration_minutes">Duration (minutes)</string>
+    <string name="add_name_of_your_service">Add name of your service</string>
+    <string name="link_with_facebook">Link with facebook</string>
+    <string name="register_with_facebook">Register with Facebook</string>
+    <string name="txt_change_password">Change Password</string>
+    <string name="play_console_license">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr8EEy9EINOpXyFu2B5Wyvg7EwFFztvacTFjvG+3vBl7Ijcb7DunSM49iMgVtyyJfsMOBtRK49jS6h4WoickXrJFW+xHE2SyBfhB6Y9jVOuD2dEQs/DpZ8/7/+oOEdmpan1XgJGnwRBZoK5KWI5hujVQXQ4qUvvyuSj8a2SmA9JZJA2OBvUSSMjsYpYF8iOKOTRbHmKNOXybpPDJXShdiaS3fDtjzEy+A7nUuhiu4wUD2RXt1K7iVlARH+cqZWkQoJfhQ9EAK3dhq0ggtrxQmfHnQB9qxc3qhysQB8pYSFihTiR46K8nrWn+YIZUUwy6tAQbL4SnvhPmt97SfflMP6QIDAQAB</string>
+    <string name="premium">com.smox.smoxtrimsetters.stylermonthly</string>
+    <string name="type_here_paste_here">type here/paste here</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="coming_soon">Coming soon…</string>
+    <string name="customer">Customer</string>
+    <string name="service_booked">Service booked</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="remember_me">Remember me</string>
+    <string name="select_time_slots">Select Time Slots</string>
+    <string name="select_date">Select Date</string>
+    <string name="service_done">Service Done</string>
+    <string name="txt_complete">Complete</string>
+    <string name="are_you_sure_want_to_complete">Are you sure want to Complete this Appointment</string>
+    <string name="press_again">Press again</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="logout">Logout</string>
+    <string name="styler_profile">Styler Profile</string>
+    <string name="format_ratingsss">%.1f </string>
+    <string name="ratingUser">%d user\'s rated this product</string>
+    <string name="type_a_message">type a message</string>
+    <string name="txt_chat">Chat</string>
+    <string name="txt_photo">photo</string>
+    <string name="no_customer_registered">Customer not registered.</string>
+    <string name="txt_approved">Approve</string>
+    <string name="format_total">Total Items- %d</string>
+
+    <string name="my_cart">My Cart</string>
+    <string name="txt_edit">Change</string>
+    <string name="no_address_added_yet">No Address Added yet</string>
+    <string name="item_total">Item Total</string>
+    <string name="discount_price">Discount</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="txt_checkout">Checkout</string>
+    <string name="txt_edit_service">Edit Service</string>
+    <string name="track_order">Track Order</string>
+    <string name="timer">%02d:%02d</string>
+    <string name="addToCart">Add to Cart</string>
+    <string name="addedCart">Added</string>
+    <string name="off_days_holidays">Off days(Holidays)</string>
+    <string name="update_your_address">Update Your Address</string>
+    <string name="delete_my_account">Delete My Account</string>
+
+    <string name="note_before_you_add_product"><font color="#ff9800">Note: Before you add product, you need to set up USPS Account for product delivery purpose.\n</font><font color="#0098FF">Click here to get USPS User ID</font></string>
+    <string name="profile">Profile</string>
+
+    <string name="error_fname">Please enter first name.</string>
+    <string name="error_lname">Please enter last name.</string>
+    <string name="error_add1">Please enter house no., building no, etc.</string>
+    <string name="error_add2">Please enter your area.</string>
+    <string name="error_city">Please enter city.</string>
+    <string name="error_state">Please enter state.</string>
+    <string name="error_country">Please enter country.</string>
+    <string name="error_zip">Please enter zip.</string>
+    <string name="error_phone">Please enter phone number.</string>
+    <string name="error_phoneValid">Please enter valid phone number.</string>
+
+    <string name="authError">Access denied. You have logged into another device.</string>
+</resources>

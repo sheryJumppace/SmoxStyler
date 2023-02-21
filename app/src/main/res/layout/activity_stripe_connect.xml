@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.StripeConnectActivity">
+    <ImageView
+        android:id="@+id/imgBack"
+        style="@style/TintColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_8sdp"
+        android:src="@drawable/ic_icon_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        style="@style/TintColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_8sdp"
+        android:gravity="center"
+        android:textColor="@color/light_black"
+        android:textSize="@dimen/_13ssp"
+        android:text="Stripe Configuration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/imgBack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fillViewport="true">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txtPublicKey"
+                android:hint="@string/text_stripe_public_key"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:background="@drawable/rect_border"
+                android:padding="@dimen/_12sdp"
+                android:layout_margin="@dimen/_16sdp"
+                android:singleLine="true"
+                tools:targetApi="o"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/txtPrivateKey"
+                android:background="@drawable/rect_border"
+                android:padding="@dimen/_12sdp"
+                android:layout_margin="@dimen/_16sdp"
+                android:singleLine="true"
+                android:hint="Stripe Secrete key"
+                tools:targetApi="o"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_16sdp"
+                android:background="@drawable/rect_yellow_bg"
+                android:text="@string/fui_button_text_save"
+                android:textAllCaps="true" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

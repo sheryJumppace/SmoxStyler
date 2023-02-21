@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            style="@style/TintColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_icon_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txtTitleBar"
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imgBack"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="Add Event"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnPost"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_16sdp"
+                android:orientation="vertical">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/test" />
+                </androidx.cardview.widget.CardView>
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAdd"
+                    style="@style/TintColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="-40dp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    app:fabSize="mini"
+                    app:backgroundTint="@color/white"
+                    app:layout_constraintTop_toBottomOf="@+id/image" />
+
+
+                <TextView
+                    android:id="@+id/txtName"
+                    style="@style/TextColorGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="Event Name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPERSONAL_DETAILS" />
+
+                <EditText
+                    android:id="@+id/etEventName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:imeOptions="actionDone"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/rect_border"
+                    android:ems="10"
+                    android:hint="Add name of the event here"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    android:padding="@dimen/_8sdp" />
+
+                <TextView
+                    android:id="@+id/txtDes"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="Description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPERSONAL_DETAILS" />
+
+                <EditText
+                    android:id="@+id/etEventDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:imeOptions="actionDone"
+                    android:background="@drawable/rect_border"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="Add description of your event here"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    android:padding="@dimen/_8sdp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/rect_border"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/txtStartDate1"
+                        style="@style/TextColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start date" />
+
+                    <ImageView
+                        android:id="@+id/imgStartDate"
+                        style="@style/TintColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_b_calendar_image" />
+
+
+                    <TextView
+                        android:id="@+id/txtStartDate"
+                        style="@style/TextColorGray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtStartDate1"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:hint="" />
+
+                    <TextView
+                        android:id="@+id/txtEndDate1"
+                        style="@style/TextColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtStartDate"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="End date" />
+
+                    <ImageView
+                        android:id="@+id/imgEndDate"
+                        style="@style/TintColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtEndDate1"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_b_calendar_image" />
+
+                    <TextView
+                        android:id="@+id/txtEndDate"
+                        style="@style/TextColorGray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtEndDate1"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:hint="" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/rect_yellow_bg"
+            android:gravity="center"
+            android:text="Post Event"
+            android:padding="@dimen/_5sdp"
+            android:textAllCaps="false"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

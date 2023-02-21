@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".activities.TrackOrderActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                style="@style/TintColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_icon_arrow_back" />
+
+            <TextView
+                android:id="@+id/txtTitleBar"
+                style="@style/TextColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="Track Order"
+                android:textSize="@dimen/_14ssp" />
+        </RelativeLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/ll_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8sdp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/small_placeholder" />
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/ProductName"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toStartOf="@+id/card"
+                    android:text=""
+                    android:textSize="@dimen/_13ssp" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llAboutView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ProductName"
+                    android:layout_marginTop="@dimen/_4sdp">
+
+                    <TextView
+                        android:id="@+id/productPrice"
+                        style="@style/TextColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="$60.00 "
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/productQuantity"
+                        style="@style/TextColorGray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:text="" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <TextView
+                    android:id="@+id/txtOrderDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_toStartOf="@+id/txtOrderID"
+                    android:text="Delivered on Oct, 24th 2021"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtOrderID"
+                    style="@style/TextColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="O_ID: 00090089"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/txtSeeItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtOrderID"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toStartOf="@+id/txtOrderID"
+                    android:text="View Items"
+                    android:textColor="@color/green"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llOrderDetail"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/txtSeeItem"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        style="@style/TextColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/txtOrderID"
+                        android:lineSpacingExtra="@dimen/_5sdp"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_itemTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtAddress"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_3sdp"
+                            android:text="@string/item_total"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/totalPrice"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text=""
+                            style="@style/TextColor"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_shoppingFee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ll_itemTotal"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_3sdp"
+                            android:text="Shipping Fee"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/txtShippingFee"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/light_yellow"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_quantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ll_shoppingFee"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_3sdp"
+                            android:text="@string/total_amount" />
+
+
+                        <TextView
+                            android:id="@+id/txtTotalPay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text=""
+                            style="@style/TextColor"
+                            android:textSize="@dimen/_14ssp" />
+
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llOrderDetail" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_below="@+id/rvProducts"
+                    />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTrackOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

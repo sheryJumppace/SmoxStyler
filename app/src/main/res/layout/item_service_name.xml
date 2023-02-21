@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+    <data>
+        <variable
+            name="service"
+            type="com.ibcemobile.smoxstyler.model.Service" />
+
+    </data>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/TextColorGray"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:drawablePadding="@dimen/_8sdp"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingBottom="@dimen/_5sdp"
+    android:paddingStart="@dimen/_5sdp"
+    android:paddingEnd="@dimen/_10sdp"
+    android:text="@{service.title}"
+    android:textSize="@dimen/_12ssp"
+    app:drawableStartCompat="@drawable/ic_rectangle_circle" />
+</layout>

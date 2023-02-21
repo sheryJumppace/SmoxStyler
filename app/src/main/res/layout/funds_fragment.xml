@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<RelativeLayout
+    android:id="@+id/rlHeader"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60sdp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="#082539">
+
+    <ImageView
+        android:id="@+id/imgDollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:src="@mipmap/dollarsymbol" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_toEndOf="@+id/imgDollar"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextColorGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Earned"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 00.00"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+</RelativeLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/dateH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rlHeader"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13ssp"
+            android:layout_weight="1"
+            android:text="Earning History" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingStart="@dimen/_8sdp"
+            android:background="@drawable/rect_yellow_bg"
+            android:layout_gravity="end"
+            android:gravity="end"
+            style="@style/TextColorGray"
+            android:textSize="@dimen/_13ssp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFunds"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateH"
+        tools:listitem="@layout/funds_item_row"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/tvNotFound"
+        style="@style/TextColor"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/currently_product_no_fund"
+        android:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

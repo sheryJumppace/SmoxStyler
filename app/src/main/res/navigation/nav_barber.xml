@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_barber"
+    android:fitsSystemWindows="true"
+    app:startDestination="@id/barberMainFragment">
+    <fragment
+        android:id="@+id/barberMainFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.BarberMainFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_barber_main">
+        <action
+            android:id="@+id/action_barberMainFragment_to_stylerProfileFragment"
+            app:destination="@id/stylerProfileFragment" />
+
+        <action
+            android:id="@+id/action_barberMainFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_contactUsFragment"
+            app:destination="@id/contactUsFragment" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_calenderFragment"
+            app:destination="@id/calenderFragment" />
+        <action
+            android:id="@+id/action_barberMainFragment_to_upNextFragment"
+            app:destination="@id/upNextFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/upNextFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.UpNextFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/up_next_fragment">
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/stylerProfileFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.StylerProfileFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/styler_profile_fragment">
+        <action
+            android:id="@+id/action_stylerProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_stylerProfileFragment_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+        <action
+            android:id="@+id/action_stylerProfileFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.StylerReviewFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/styler_review_fragment" />
+
+
+    <!--Product Fragment-->
+
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.ProductsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/products_fragment">
+
+        <action
+            android:id="@+id/to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myProductsFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.MyProductFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/my_product_fragment">
+
+        <action
+            android:id="@+id/to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.OrdersFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/order_fragment" />
+
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.AboutUsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/about_us_fragment" />
+
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.ContactUsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/contact_us_fragment" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.ProfileFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/calenderFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.CalenderFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/calender_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.ChatsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/chat_fragment" />
+    <fragment
+        android:id="@+id/fundsFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.FundsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/funds_fragment" />
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.ibcemobile.smoxstyler.fragment.WebViewFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/webview_fragment" />
+
+
+</navigation>
+
+
+
+
+

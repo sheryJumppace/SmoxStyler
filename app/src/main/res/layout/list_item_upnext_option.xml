@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="upNext"
+            type="com.ibcemobile.smoxstyler.model.UpNextOption" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}">
+
+        <TextView
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/btnDelete"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingRight="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="@{upNext.title.toUpperCase()}"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/btnDelete"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:onClick="@{clickListener}"
+            android:src="@drawable/trash"
+            app:isGone="@{upNext.isStatic}" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:background="@color/lightGray" />
+    </RelativeLayout>
+</layout>
+

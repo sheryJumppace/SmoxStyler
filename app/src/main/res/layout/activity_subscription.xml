@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            style="@style/TintColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_icon_arrow_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/txtTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="Subscription"
+            style="@style/TextColor"
+            android:textSize="@dimen/_14ssp" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_50sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+<!--
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/s_m_image">
+
+                        <TextView
+                            android:id="@+id/txtUserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:text="Hi Vladimir !"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp" />
+
+                        <TextView
+                            android:id="@+id/txtSubscription"
+                            android:layout_width="@dimen/_200sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtUserName"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:lineSpacingExtra="@dimen/_4ssp"
+                            android:text="Your subscription will end on July 25, 2021"
+                            android:textColor="#E0E0E0" />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+-->
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextColorGray"
+                    android:textAlignment="center"
+                    android:lineSpacingExtra="@dimen/_5ssp"
+                    android:layout_margin="@dimen/_30sdp"
+                    android:text="Please subscribe to continue using SmoxTrimsetters as a styler"/>
+
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextColor"
+                    android:textAlignment="center"
+                    android:lineSpacingExtra="@dimen/_5ssp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="A subscription for premium access of appli cation for book appointment with custome rs or receive appointment by customers and Share event with your favourite customers"/>
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    app:cardUseCompatPadding="true">
+                    <RelativeLayout
+                        android:id="@+id/rlSubscribed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gredient_bg"
+                        android:padding="@dimen/_16sdp">
+
+                        <TextView
+                            android:id="@+id/txtTitle"
+                            style="@style/TextColorGray"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="@dimen/_5ssp"
+                            android:text="Monthly Subscription"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_15ssp"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txtPrice"
+                            style="@style/TextColor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtTitle"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:lineSpacingExtra="@dimen/_5ssp"
+                            android:text="$ 29.99/Month"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_18ssp"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/txtBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/_8sdp"
+            android:text="Subscribe"
+            android:textSize="@dimen/_14ssp"
+            android:background="@drawable/rect_yellow_bg"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

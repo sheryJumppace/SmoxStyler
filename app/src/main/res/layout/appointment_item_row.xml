@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isCanDelete"
+            type="Boolean" />
+
+        <variable
+            name="isShowService"
+            type="Boolean" />
+
+        <variable
+            name="appointment"
+            type="com.ibcemobile.smoxstyler.model.Appointment" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:outlineSpotShadowColor="@color/green"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/mainRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}"
+            android:padding="@dimen/_6sdp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_150sdp"
+                app:cardCornerRadius="@dimen/_8sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="centerCrop"
+                        app:imageUrl='@{appointment.image}'
+                        app:isCircle="@{false}"
+                        app:placeHolder="@{@drawable/small_placeholder}" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="#88000000"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@{appointment.appointment_date}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11ssp" />
+                </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtEventsName"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/txtPrice"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@{@string/format_price(appointment.price)}"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTime"
+                style="@style/TextColorGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtEventsName"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:drawablePadding="@dimen/_8sdp"
+                app:drawableStartCompat="@drawable/ic_clock" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/txtTime"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:background="#E1E1E1" />
+
+
+            <TextView
+                android:id="@+id/txtOpt"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v1"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:text="Services opt :" />
+
+            <TextView
+                android:id="@+id/txtServiceName"
+                style="@style/TextColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtOpt"
+                android:layout_toEndOf="@+id/card"
+                android:drawablePadding="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_rectangle_circle" />
+
+            <LinearLayout
+                android:id="@+id/declineLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtServiceName"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/txtEdit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                   android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_yellow_bg"
+                    android:gravity="center"
+                    android:onClick="@{clickListener}"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Edit" />
+
+                <TextView
+                    android:id="@+id/txtComplete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_4sdp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:onClick="@{clickListener}"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Complete"
+                    android:background="@drawable/rect_green_bg" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

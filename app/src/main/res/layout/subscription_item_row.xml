@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="data"
+            type="com.ibcemobile.smoxstyler.utils.localdb.AugmentedSkuDetails" />
+    </data>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/upgrade_basic">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="#141516"
+            android:textStyle="bold"
+            android:lineSpacingExtra="@dimen/_6ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:text="Basic \n$89.99"/>
+
+
+        <TextView
+            android:id="@+id/txtHeading1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_above="@+id/txtHeading2"
+            android:text="**Lorem ipsum"
+            android:textColor="#EBEBEB" />
+
+        <TextView
+            android:id="@+id/txtHeading2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_above="@+id/btnUpgrade_Basic"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:text="**Lorem ipsum"
+            android:textColor="#EBEBEB" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpgrade_Basic"
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@drawable/rect_white_bg"
+            android:text="Upgrade"
+            android:textAllCaps="false"
+            android:textColor="@color/light_black" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+
+</layout>

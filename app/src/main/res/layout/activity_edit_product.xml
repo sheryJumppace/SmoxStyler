@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:isScrollContainer="true"
+            app:layout_constraintBottom_toTopOf="@+id/bottomContainer"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    style="@style/TintColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:padding="@dimen/_8sdp"
+                    android:src="@drawable/ic_icon_arrow_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtTitleBar"
+                    style="@style/TextColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Edit Product"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTitleBar">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_8sdp"
+                        app:cardCornerRadius="@dimen/_8sdp">
+
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_add_product_icon" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fabAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_30sdp"
+                        android:layout_marginTop="-40dp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_baseline_edit_24"
+                        android:visibility="gone"
+                        app:backgroundTint="@color/white"
+                        app:fabSize="mini"
+                        app:layout_constraintTop_toBottomOf="@+id/image" />
+
+
+                    <TextView
+                        android:id="@+id/txtName"
+                        style="@style/TextColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:text="Product name*"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPERSONAL_DETAILS" />
+
+                    <EditText
+                        android:id="@+id/etProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/rect_border"
+                        android:ems="10"
+                        android:hint="Add name of the product here"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress|textCapWords"
+                        android:minHeight="48dp"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/txtDes"
+                        style="@style/TextColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:text="Description*"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPERSONAL_DETAILS" />
+
+                    <EditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/rect_border"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:hint="Add description of your product here"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:minHeight="48dp"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/txtFeatures"
+                        style="@style/TextColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:text="Features*"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPERSONAL_DETAILS" />
+
+                    <EditText
+                        android:id="@+id/etFeatures"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/rect_border"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:hint="Add features of your product here"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:minHeight="48dp"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llNewFeature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_baseline_radio_button_unchecked_24" />
+
+                        <EditText
+                            android:id="@+id/etFeature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:background="@drawable/rect_border"
+                            android:ems="10"
+                            android:gravity="start|top"
+                            android:hint="Add features of your product here"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:minHeight="48dp"
+                            android:padding="@dimen/_8sdp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_shipping"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="Price($)*"
+                                android:textSize="@dimen/_13ssp" />
+
+
+                            <EditText
+                                android:id="@+id/etPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:hint="Enter price"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:visibility="gone"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="Shipping price($)"
+                                android:textSize="@dimen/_13ssp" />
+
+
+                            <EditText
+                                android:id="@+id/etShippingPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:hint="Shipping price"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+                        </LinearLayout>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_discount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="Discounted Price($)"
+                                android:textSize="@dimen/_13ssp" />
+
+
+                            <EditText
+                                android:id="@+id/etDiscPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:hint="Enter discount price"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="Category*"
+                                android:textSize="@dimen/_13ssp" />
+
+
+                            <LinearLayout
+                                android:id="@+id/llQnt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/spinner_qty_bg"
+                                android:orientation="horizontal">
+
+                                <Spinner
+                                    android:id="@+id/spinnerCategory"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@android:color/transparent"
+                                    android:gravity="center"
+                                    android:spinnerMode="dropdown" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/_45sdp"
+                                    android:layout_height="@dimen/_40sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="Model"
+                                android:textSize="@dimen/_13ssp" />
+
+
+                            <EditText
+                                android:id="@+id/etModel"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:hint="Enter model"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:maxLength="3"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextColor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:text="Stock*"
+                                android:textSize="@dimen/_13ssp" />
+
+
+                            <EditText
+                                android:id="@+id/etStock"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:hint="Enter your stock"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+                        </LinearLayout>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_dimen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Dimensions (in inches) required if product size is 12 inches and greater then 12 inches."
+                            android:textSize="@dimen/_13ssp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/etLength"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:layout_weight=".3"
+                                android:hint="Length"
+                                android:imeOptions="actionNext"
+                                android:inputType="numberDecimal"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <EditText
+                                android:id="@+id/etWidth"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:layout_weight=".3"
+                                android:hint="Width"
+                                android:imeOptions="actionNext"
+                                android:inputType="numberDecimal"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <EditText
+                                android:id="@+id/etHeight"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:layout_weight=".3"
+                                android:hint="Height"
+                                android:imeOptions="actionNext"
+                                android:inputType="numberDecimal"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+                        </LinearLayout>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_weight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtWeight"
+                            style="@style/TextColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Weight*"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/etLPound"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:layout_weight=".3"
+                                android:maxLength="2"
+                                android:hint="Pounds"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <EditText
+                                android:id="@+id/etOunces"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:background="@drawable/rect_border"
+                                android:ems="10"
+                                android:layout_weight=".3"
+                                android:hint="Ounces"
+                                android:maxLength="2"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:minHeight="48dp"
+                                android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_11sdp" />
+
+
+                        </LinearLayout>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/isAvailable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:checked="true"
+                        android:text="Is Available"
+                        android:textSize="@dimen/_13sdp"
+                        android:theme="@style/MySwitch"
+                        app:switchPadding="@dimen/_13sdp"
+                        app:trackTint="@color/dark_black" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:background="@drawable/rect_total_bg"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Total price($)"
+                            android:textColor="#141516"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <TextView
+                            android:id="@+id/txtTotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_8sdp"
+                            android:text=""
+                            android:textColor="#141516"
+                            android:textSize="@dimen/_13ssp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/bottomContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/rect_yellow_bg"
+                android:gravity="center"
+                android:text="Done"
+                android:textAllCaps="false"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

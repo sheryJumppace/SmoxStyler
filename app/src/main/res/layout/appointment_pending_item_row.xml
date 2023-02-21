@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.content.Context" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="isCanDelete"
+            type="Boolean" />
+
+        <variable
+            name="isShowService"
+            type="Boolean" />
+
+        <variable
+            name="appointment"
+            type="com.ibcemobile.smoxstyler.model.Appointment" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_4ssp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/mainRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/_6sdp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_140sdp"
+                app:cardCornerRadius="@dimen/_8sdp">
+
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/small_placeholder"
+                     />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtEventsName"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:text="A01"
+                android:textSize="@dimen/_13ssp" />
+
+            <TextView
+                android:id="@+id/txtPrice"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="$70.00"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTime"
+                style="@style/TextColorGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtEventsName"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:drawableStart="@drawable/ic_clock"
+                android:drawablePadding="@dimen/_8sdp"
+                android:text="9 : 00 am - 10 : 00 am" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/txtTime"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:background="#E1E1E1" />
+
+
+            <TextView
+                android:id="@+id/txtOpt"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/v1"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:text="Services asked :" />
+
+            <LinearLayout
+                android:id="@+id/c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtOpt"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextColorGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:drawableStart="@drawable/ic_rectangle_circle"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="Head massage" />
+
+                <TextView
+                    style="@style/TextColorGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="Hair cut"
+                    app:drawableStartCompat="@drawable/ic_rectangle_circle" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/c"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toEndOf="@+id/card"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/rect_yellow_bg"
+                    android:text="Approve" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/holo_red_light"
+                    android:padding="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="Decline" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

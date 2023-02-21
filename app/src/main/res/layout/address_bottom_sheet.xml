@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_15sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_8sdp">
+        <TextView
+            android:id="@+id/txtTitleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Address"
+            android:paddingTop="@dimen/_5sdp"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/_14ssp"
+            android:paddingBottom="@dimen/_5sdp"/>
+
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:inputType="textCapWords"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:inputType="textCapWords"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etAddress1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="House no., Building no. etc"
+            android:inputType="textCapWords"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etAddress2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Area"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            android:focusable="false"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="State"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Country"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etZipCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Zip Code"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+        <EditText
+            android:id="@+id/etNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_14sdp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Make Default"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/saveAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_yellow_bg"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="save Address"/>
+
+    </LinearLayout>
+
+</ScrollView>
