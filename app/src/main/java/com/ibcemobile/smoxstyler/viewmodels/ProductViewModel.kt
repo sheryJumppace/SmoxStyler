@@ -42,15 +42,11 @@ class ProductViewModel : ViewModel() {
     var isValidProduct = MutableLiveData<ProductValidResponse>()
 
     fun getBarbers(
-        context: Context,
-        progressBar: KProgressHUD,
-        page: Int
+        context: Context, progressBar: KProgressHUD, page: Int
     ) {
         progressBar.show()
-        ApiRepository(context).getBarberList(page.toString())
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<BarberResponse> {
+        ApiRepository(context).getBarberList(page.toString()).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe(object : Observer<BarberResponse> {
                 override fun onSubscribe(d: Disposable) {
 
                 }
@@ -59,8 +55,7 @@ class ProductViewModel : ViewModel() {
                     progressBar.dismiss()
                     if (res.error) {
                         Toast.makeText(
-                            context,
-                            context.getString(R.string.error_connection), Toast.LENGTH_LONG
+                            context, context.getString(R.string.error_connection), Toast.LENGTH_LONG
                         ).show()
                     } else {
                         barberData.postValue(res.result)
@@ -69,13 +64,11 @@ class ProductViewModel : ViewModel() {
 
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    Log.e("++--++", "onError: ${e.message}")
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -86,14 +79,10 @@ class ProductViewModel : ViewModel() {
     }
 
     fun getProductsByBarber(
-        context: Context,
-        progressBar: KProgressHUD,
-        barberId: String,
-        userId:Int
+        context: Context, progressBar: KProgressHUD, barberId: String, userId: Int
     ) {
         progressBar.show()
-        ApiRepository(context).getAllProducts(barberId,userId)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).getAllProducts(barberId, userId).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ProductResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -101,29 +90,39 @@ class ProductViewModel : ViewModel() {
                 }
 
                 override fun onNext(res: ProductResponse) {
-                    progressBar.dismiss()
-                    Log.d("++--++","ProductViewModel 105 getProductsByBarber res: $res")
-                    if (res.error) {
-                        Toast.makeText(
-                            context,
-                            res.message, Toast.LENGTH_LONG
-                        ).show()
-                    } else {
-                        productRes.postValue(res)
+                    try {
+                        progressBar.dismiss()
+                        Log.d("++--++", "ProductViewModel 105 getProductsByBarber res: $res")
+                        if (res.error) {
+                            Toast.makeText(
+                                context, res.message, Toast.LENGTH_LONG
+                            ).show()
+                        } else {
+                            productRes.postValue(res)
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
                 }
 
                 override fun onError(e: Throwable) {
-                    progressBar.dismiss()
-                    Log.d("++--++","ProductViewModel 105 getProductsByBarber onError: ${e.message}")
+                    try {
+                        progressBar.dismiss()
+                        Log.d(
+                            "++--++",
+                            "ProductViewModel 105 getProductsByBarber onError: ${e.message}"
+                        )
 
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                        Log.e("++--++", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
+
                 }
 
                 override fun onComplete() {
@@ -138,8 +137,7 @@ class ProductViewModel : ViewModel() {
         progressBar: KProgressHUD,
     ) {
         progressBar.show()
-        ApiRepository(context).getMyProducts()
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).getMyProducts().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ProductResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -149,12 +147,11 @@ class ProductViewModel : ViewModel() {
                 override fun onNext(res: ProductResponse) {
                     progressBar.dismiss()
 
-                    Log.d("++--++","ProductViewModel 149 getMyProducts res: $res")
+                    Log.d("++--++", "ProductViewModel 149 getMyProducts res: $res")
 
                     if (res.error) {
                         Toast.makeText(
-                            context,
-                            res.message, Toast.LENGTH_LONG
+                            context, res.message, Toast.LENGTH_LONG
                         ).show()
                     } else {
                         productRes.postValue(res)
@@ -162,14 +159,18 @@ class ProductViewModel : ViewModel() {
                 }
 
                 override fun onError(e: Throwable) {
-                    progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    try {
+                        progressBar.dismiss()
+                        Log.e("++--++", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -181,13 +182,10 @@ class ProductViewModel : ViewModel() {
 
 
     fun checkProduct(
-        context: Context,
-        progressBar: KProgressHUD,
-        jsonObject: JsonObject
+        context: Context, progressBar: KProgressHUD, jsonObject: JsonObject
     ) {
         progressBar.show()
-        ApiRepository(context).checkProduct(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).checkProduct(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ProductValidResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -195,20 +193,23 @@ class ProductViewModel : ViewModel() {
                 }
 
                 override fun onNext(res: ProductValidResponse) {
+                    Log.e("++--++", "checkProduct onNext: ${res}")
                     progressBar.dismiss()
                     isValidProduct.value = res
 
                 }
 
                 override fun onError(e: Throwable) {
-                    progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    try {
+                        progressBar.dismiss()
+                        Log.e("++--++", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -219,14 +220,10 @@ class ProductViewModel : ViewModel() {
     }
 
     fun deleteProduct(
-        context: Context,
-        progressBar: KProgressHUD,
-        productId: Int,
-        barberId: String
+        context: Context, progressBar: KProgressHUD, productId: Int, barberId: String
     ) {
         progressBar.show()
-        ApiRepository(context).deleteProduct(productId.toString())
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).deleteProduct(productId.toString()).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -236,22 +233,24 @@ class ProductViewModel : ViewModel() {
                 override fun onNext(res: SimpleOkResponse) {
                     progressBar.dismiss()
                     Toast.makeText(
-                        context,
-                        res.message, Toast.LENGTH_LONG
+                        context, res.message, Toast.LENGTH_LONG
                     ).show()
                     //getProductsByBarber(context, progressBar, barberId, barberId.toInt())
-                    getMyProducts(context,progressBar)
+                    getMyProducts(context, progressBar)
                 }
 
                 override fun onError(e: Throwable) {
-                    Log.e("TAG", "onError: ${e.message}")
-                    progressBar.dismiss()
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    Log.e("++--++", "onError: ${e.message}")
+                    try {
+                        progressBar.dismiss()
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -263,8 +262,7 @@ class ProductViewModel : ViewModel() {
 
     fun updateProduct(context: Activity, progressBar: KProgressHUD, jsonObject: JsonObject) {
         progressBar.show()
-        ApiRepository(context).updateProduct(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).updateProduct(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -275,22 +273,24 @@ class ProductViewModel : ViewModel() {
                     progressBar.dismiss()
 
                     Toast.makeText(
-                        context,
-                        res.message, Toast.LENGTH_LONG
+                        context, res.message, Toast.LENGTH_LONG
                     ).show()
                     context.finish()
 
                 }
 
                 override fun onError(e: Throwable) {
-                    progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    try {
+                        progressBar.dismiss()
+                        Log.e("++--++", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -303,8 +303,7 @@ class ProductViewModel : ViewModel() {
     fun addNewProduct(context: Activity, progressBar: KProgressHUD, jsonObject: JsonObject) {
 
         progressBar.show()
-        ApiRepository(context).addNewProduct(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).addNewProduct(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse2> {
                 override fun onSubscribe(d: Disposable) {
@@ -315,23 +314,24 @@ class ProductViewModel : ViewModel() {
                     progressBar.dismiss()
 
                     Toast.makeText(
-                        context,
-                        res.message, Toast.LENGTH_LONG
+                        context, res.message, Toast.LENGTH_LONG
                     ).show()
-                    if (!res.error)
-                    context.finish()
+                    if (!res.error) context.finish()
 
                 }
 
                 override fun onError(e: Throwable) {
-                    progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    try {
+                        progressBar.dismiss()
+                        Log.e("++--++", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -343,8 +343,7 @@ class ProductViewModel : ViewModel() {
 
     fun getCategoryList(context: Context, progressBar: KProgressHUD) {
         progressBar.show()
-        ApiRepository(context).getProductCategory()
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).getProductCategory().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ProductCategory> {
                 override fun onSubscribe(d: Disposable) {
@@ -357,22 +356,23 @@ class ProductViewModel : ViewModel() {
                         if (res.result.isNotEmpty()) {
                             productCategory.postValue(res.result)
                         }
-                    } else
-                        Toast.makeText(
-                            context,
-                            res.message, Toast.LENGTH_LONG
-                        ).show()
+                    } else Toast.makeText(
+                        context, res.message, Toast.LENGTH_LONG
+                    ).show()
                 }
 
                 override fun onError(e: Throwable) {
-                    progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    try {
+                        progressBar.dismiss()
+                        Log.e("++--++", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {

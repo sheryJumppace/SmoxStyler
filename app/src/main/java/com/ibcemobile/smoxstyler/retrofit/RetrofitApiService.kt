@@ -21,22 +21,23 @@ class RetrofitApiService {
     }
 
     private fun getHttpClientForAuth(context: Context): OkHttpClient {
-        return OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS)
+        return OkHttpClient.Builder().connectTimeout(300, TimeUnit.SECONDS)
+            .writeTimeout(300, TimeUnit.SECONDS).readTimeout(300, TimeUnit.SECONDS)
             .addInterceptor(getHttpLogging()).addInterceptor(TokenInterceptor(context)).build()
     }
 
     private fun getHttpClientForAuthForApp(context: Context): OkHttpClient {
-        return OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS)
+        return OkHttpClient.Builder().connectTimeout(300, TimeUnit.SECONDS)
+            .writeTimeout(300, TimeUnit.SECONDS).readTimeout(300, TimeUnit.SECONDS)
             .addInterceptor(getHttpLogging()).addInterceptor(TokenInterceptorApp(context)).build()
     }
 
     private fun getRetrofitClientForAuth(context: Context): Retrofit {
-        return Retrofit.Builder().baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(
-                GsonBuilder().serializeNulls()
-                .create())).client(getHttpClientForAuth(context))
+        return Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(
+            GsonConverterFactory.create(
+                GsonBuilder().serializeNulls().create()
+            )
+        ).client(getHttpClientForAuth(context))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
     }
 
@@ -45,10 +46,11 @@ class RetrofitApiService {
     }
 
     private fun getRetrofitClientForAuthForApp(context: Context): Retrofit {
-        return Retrofit.Builder().baseUrl(APP_BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(
-                GsonBuilder().serializeNulls()
-                    .create())).client(getHttpClientForAuthForApp(context))
+        return Retrofit.Builder().baseUrl(APP_BASE_URL).addConverterFactory(
+            GsonConverterFactory.create(
+                GsonBuilder().serializeNulls().create()
+            )
+        ).client(getHttpClientForAuthForApp(context))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
     }
 

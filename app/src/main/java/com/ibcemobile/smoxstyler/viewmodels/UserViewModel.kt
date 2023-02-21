@@ -27,12 +27,10 @@ class UserViewModel : ViewModel() {
 
 
     fun getBarberProfile(
-        context: Context,
-        progressBar: KProgressHUD
+        context: Context, progressBar: KProgressHUD
     ) {
         progressBar.show()
-        ApiRepository(context).getBarberProfile()
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).getBarberProfile().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ProfileResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -43,8 +41,7 @@ class UserViewModel : ViewModel() {
                     progressBar.dismiss()
                     if (res.error) {
                         Toast.makeText(
-                            context,
-                            context.getString(R.string.error_connection), Toast.LENGTH_LONG
+                            context, context.getString(R.string.error_connection), Toast.LENGTH_LONG
                         ).show()
                     } else {
                         barberProfile.postValue(res)
@@ -54,12 +51,10 @@ class UserViewModel : ViewModel() {
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     //Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -70,16 +65,11 @@ class UserViewModel : ViewModel() {
     }
 
     fun updateProfile(
-        context: Context,
-        progressBar: KProgressHUD,
-        apiPath: String,
-        jsonObject: JsonObject
+        context: Context, progressBar: KProgressHUD, apiPath: String, jsonObject: JsonObject
     ) {
         progressBar.show()
-        ApiRepository(context).updateProfile(apiPath, jsonObject)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<JsonObject> {
+        ApiRepository(context).updateProfile(apiPath, jsonObject).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe(object : Observer<JsonObject> {
                 override fun onSubscribe(d: Disposable) {
 
                 }
@@ -93,13 +83,15 @@ class UserViewModel : ViewModel() {
 
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
+                    try {
+                        Log.e("TAG", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                    else
-                        shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -110,15 +102,11 @@ class UserViewModel : ViewModel() {
     }
 
     fun updateProfileWithPost(
-        context: Context,
-        progressBar: KProgressHUD,
-        apiPath: String,
-        jsonObject: JsonObject
+        context: Context, progressBar: KProgressHUD, apiPath: String, jsonObject: JsonObject
     ) {
         progressBar.show()
         ApiRepository(context).updateProfileWithPost(apiPath, jsonObject)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<JsonObject> {
                 override fun onSubscribe(d: Disposable) {
 
@@ -130,20 +118,17 @@ class UserViewModel : ViewModel() {
                         isUpdateProfile.value = res
                     }
                     Toast.makeText(
-                        context,
-                        res.get("message").asString, Toast.LENGTH_LONG
+                        context, res.get("message").asString, Toast.LENGTH_LONG
                     ).show()
                 }
 
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -154,12 +139,10 @@ class UserViewModel : ViewModel() {
     }
 
     fun deleteAccount(
-        context: Context,
-        progressBar: KProgressHUD
+        context: Context, progressBar: KProgressHUD
     ) {
         progressBar.show()
-        ApiRepository(context).deleteAccount()
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).deleteAccount().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse2> {
                 override fun onSubscribe(d: Disposable) {
@@ -169,8 +152,7 @@ class UserViewModel : ViewModel() {
                 override fun onNext(res: SimpleOkResponse2) {
                     progressBar.dismiss()
                     Toast.makeText(
-                        context,
-                        res.message, Toast.LENGTH_LONG
+                        context, res.message, Toast.LENGTH_LONG
                     ).show()
                     if (!res.error) {
                         isDeleteAccount.value = res
@@ -180,12 +162,10 @@ class UserViewModel : ViewModel() {
                 override fun onError(e: Throwable) {
                     progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -197,10 +177,8 @@ class UserViewModel : ViewModel() {
 
 
     fun sendNotification(context: Context, jsonObject: JsonObject) {
-        ApiRepository(context).sendNotification(jsonObject)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<JsonObject> {
+        ApiRepository(context).sendNotification(jsonObject).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe(object : Observer<JsonObject> {
                 override fun onSubscribe(d: Disposable) {
 
                 }
@@ -213,12 +191,10 @@ class UserViewModel : ViewModel() {
                 override fun onError(e: Throwable) {
                     //progressBar.dismiss()
                     Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code()==401) {
+                    if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    }
-                    else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {

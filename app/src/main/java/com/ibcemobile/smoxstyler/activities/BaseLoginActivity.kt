@@ -317,7 +317,7 @@ open class BaseLoginActivity : BaseActivity(), GoogleApiClient.OnConnectionFaile
         params["phone_number"] = phone
         params["first_name"] = firstName
         params["last_name"] = lastName
-        params["type"] = type.name
+        params["user_type"] = type.name
         progressHUD.show()
         APIHandler(
             applicationContext,

@@ -28,10 +28,8 @@ class CartViewModel : ViewModel() {
 
     fun getCartListByBarber(context: Context, progressBar: KProgressHUD, barberId: String) {
         //progressBar.show()
-        ApiRepository(context).getCartListByBarber(barberId)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<CartResponse> {
+        ApiRepository(context).getCartListByBarber(barberId).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe(object : Observer<CartResponse> {
                 override fun onSubscribe(d: Disposable) {
 
                 }
@@ -40,8 +38,7 @@ class CartViewModel : ViewModel() {
                     //progressBar.dismiss()
                     if (res.error) {
                         Toast.makeText(
-                            context,
-                            res.message, Toast.LENGTH_LONG
+                            context, res.message, Toast.LENGTH_LONG
                         ).show()
                     } else {
                         cartData.postValue(res.result)
@@ -54,8 +51,7 @@ class CartViewModel : ViewModel() {
                     if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    } else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -67,8 +63,7 @@ class CartViewModel : ViewModel() {
 
     fun getCartBarberList(context: Context, progressBar: KProgressHUD) {
         progressBar.show()
-        ApiRepository(context).getCartBarberList()
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).getCartBarberList().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<CartBarberResponse> {
                 override fun onSubscribe(d: Disposable) {
@@ -79,8 +74,7 @@ class CartViewModel : ViewModel() {
                     progressBar.dismiss()
                     if (res.error) {
                         Toast.makeText(
-                            context,
-                            res.message, Toast.LENGTH_LONG
+                            context, res.message, Toast.LENGTH_LONG
                         ).show()
                     } else {
                         barberCarts.postValue(res.result)
@@ -88,13 +82,17 @@ class CartViewModel : ViewModel() {
                 }
 
                 override fun onError(e: Throwable) {
-                    progressBar.dismiss()
-                    Log.e("TAG", "onError: ${e.message}")
-                    if ((e as HttpException).code() == 401) {
-                        shortToast(context.getString(R.string.authError))
-                        APIHandler(context).logout()
-                    } else
-                        shortToast(e.message())
+                    try {
+                        progressBar.dismiss()
+                        Log.e("TAG", "onError: ${e.message}")
+                        if ((e as HttpException).code() == 401) {
+                            shortToast(context.getString(R.string.authError))
+                            APIHandler(context).logout()
+                        } else shortToast(e.message())
+
+                    } catch (ex: Exception) {
+                        ex.printStackTrace()
+                    }
                 }
 
                 override fun onComplete() {
@@ -105,14 +103,10 @@ class CartViewModel : ViewModel() {
     }
 
     fun updateCart(
-        context: Activity,
-        progressBar: KProgressHUD,
-        jsonObject: JsonObject,
-        barberId: String
+        context: Activity, progressBar: KProgressHUD, jsonObject: JsonObject, barberId: String
     ) {
         progressBar.show()
-        ApiRepository(context).updateCart(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).updateCart(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse2> {
                 override fun onSubscribe(d: Disposable) {
@@ -122,8 +116,7 @@ class CartViewModel : ViewModel() {
                 override fun onNext(res: SimpleOkResponse2) {
                     progressBar.dismiss()
 
-                    if (res.error)
-                        Toast.makeText(context, res.message, Toast.LENGTH_LONG).show()
+                    if (res.error) Toast.makeText(context, res.message, Toast.LENGTH_LONG).show()
                     else {
                         getCartListByBarber(context, progressBar, barberId)
                     }
@@ -136,8 +129,7 @@ class CartViewModel : ViewModel() {
                     if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    } else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
@@ -150,8 +142,7 @@ class CartViewModel : ViewModel() {
     fun addToCart(context: Activity, progressBar: KProgressHUD, jsonObject: JsonObject) {
 
         progressBar.show()
-        ApiRepository(context).addToCart(jsonObject)
-            .subscribeOn(Schedulers.io())
+        ApiRepository(context).addToCart(jsonObject).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<SimpleOkResponse2> {
                 override fun onSubscribe(d: Disposable) {
@@ -162,8 +153,7 @@ class CartViewModel : ViewModel() {
                     progressBar.dismiss()
 
                     Toast.makeText(
-                        context,
-                        res.message, Toast.LENGTH_LONG
+                        context, res.message, Toast.LENGTH_LONG
                     ).show()
                     isCartUpdate.value = res.error
 
@@ -175,8 +165,7 @@ class CartViewModel : ViewModel() {
                     if ((e as HttpException).code() == 401) {
                         shortToast(context.getString(R.string.authError))
                         APIHandler(context).logout()
-                    } else
-                        shortToast(e.message())
+                    } else shortToast(e.message())
                 }
 
                 override fun onComplete() {
