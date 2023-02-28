@@ -15,7 +15,8 @@ import com.ibcemobile.smoxstyler.manager.Constants
 import com.ibcemobile.smoxstyler.model.type.UserType
 
 class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
-    private var isPhoneVerified = false
+//        private var isPhoneVerified = false
+    private var isPhoneVerified = true
     var userType: String = UserType.Barber.toString()
     lateinit var binding: ActivitySignUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +31,10 @@ class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
         binding.txtPhone.setOnClickListener(this)
         binding.txtLogin.setOnClickListener(this)
 
-         binding.txtPhone.setOnClickListener {
-             doPhoneNumberVerification()
-         }
+        binding.txtPhone.setText("+923463885110")
+        binding.txtPhone.setOnClickListener {
+//            doPhoneNumberVerification()
+        }
         binding.imageView4.setOnClickListener {
             binding.eyeOff.visibility = View.VISIBLE
             binding.imageView4.visibility = View.GONE
@@ -44,7 +46,6 @@ class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
             binding.eyeOff.visibility = View.GONE
             binding.txtPassword.transformationMethod = null
         }
-
 
 
     }
@@ -86,7 +87,8 @@ class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
                     val error = response.error
                     if (error != null) {
                         Toast.makeText(
-                            applicationContext, response.error!!.localizedMessage,
+                            applicationContext,
+                            response.error!!.localizedMessage,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -123,8 +125,7 @@ class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
         signUpWithEmail(firstName, lastName, email, phone, password, UserType.Barber)
     }
 
-    private fun validation()
-            : Boolean {
+    private fun validation(): Boolean {
         if (binding.txtFirstName.text.toString().isEmpty()) {
             binding.txtFirstName.error = "Please type your first name"
             binding.txtFirstName.requestFocus()
@@ -147,10 +148,10 @@ class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
             binding.txtPassword.requestFocus()
             return false
         }
-         if (!isPhoneVerified) {
-             binding.txtPhone.error = "Please verify your phone number"
-             return false
-         }
+        if (!isPhoneVerified) {
+            binding.txtPhone.error = "Please verify your phone number"
+            return false
+        }
 
         return true
     }
@@ -161,12 +162,8 @@ class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
         )
         // Create and launch sign-in intent
         startActivityForResult(
-            AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setTheme(R.style.FirebasePhoneAuth)
-                .build(),
-            Companion.RC_SIGN_IN
+            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers)
+                .setTheme(R.style.FirebasePhoneAuth).build(), Companion.RC_SIGN_IN
         )
     }
 

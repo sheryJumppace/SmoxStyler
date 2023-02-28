@@ -254,7 +254,7 @@ open class BaseLoginActivity : BaseActivity(), GoogleApiClient.OnConnectionFaile
         params["image_url"] = image ?: ""
         params["link"] = ""
         params["social_id"] = socialID ?: ""
-        params["user_type"] = UserType.Barber.name
+        params["user_type"] = "barber"
 
         progressHUD.show()
         APIHandler(
@@ -317,7 +317,8 @@ open class BaseLoginActivity : BaseActivity(), GoogleApiClient.OnConnectionFaile
         params["phone_number"] = phone
         params["first_name"] = firstName
         params["last_name"] = lastName
-        params["user_type"] = type.name
+        params["user_type"] = "barber"
+//        params["user_type"] = type.name
         progressHUD.show()
         APIHandler(
             applicationContext,
