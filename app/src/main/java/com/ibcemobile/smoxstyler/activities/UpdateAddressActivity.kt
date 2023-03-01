@@ -58,27 +58,25 @@ class UpdateAddressActivity : BaseActivity() {
                 addressLatitude?.let { it1 ->
                     addressLongitude?.let { it2 ->
                         updateAddress(
-                            binding.txtAddress.text.toString(),
-                            it1,
-                            it2
+                            binding.txtAddress.text.toString(), it1, it2
                         )
                     }
                 }
-            } else
-                shortToast("Please enter valid address")
+            } else shortToast("Please enter valid address")
         }
 
         binding.defaultSwitch.setOnCheckedChangeListener { button, checked ->
             isSellProduct = checked
             if (isSellProduct) {
                 binding.pickupAddressLayout.visibility = View.VISIBLE
-            } else
-                binding.pickupAddressLayout.visibility = View.GONE
+            } else binding.pickupAddressLayout.visibility = View.GONE
         }
 
         if (intent.hasExtra(KEY_ADDRESS)) {
             binding.txtAddress.text = intent.getStringExtra(KEY_ADDRESS)
-            if (intent.getStringExtra(KEY_ZIP)!=null && intent.getStringExtra(KEY_ZIP)?.isNotEmpty()!!) {
+            if (intent.getStringExtra(KEY_ZIP) != null && intent.getStringExtra(KEY_ZIP)
+                    ?.isNotEmpty()!!
+            ) {
 
                 binding.etAddress1.setText(intent.getStringExtra(KEY_ADD_1))
                 binding.etAddress2.setText(intent.getStringExtra(KEY_ADD_2))
@@ -111,8 +109,7 @@ class UpdateAddressActivity : BaseActivity() {
                     Place.Field.LAT_LNG
                 )
                 val autoSearchIntent = Autocomplete.IntentBuilder(
-                    AutocompleteActivityMode.FULLSCREEN,
-                    fields
+                    AutocompleteActivityMode.FULLSCREEN, fields
                 ).build(this@UpdateAddressActivity)
                 startActivityForResult(autoSearchIntent, AUTOCOMPLETE_REQUEST_CODE)
             }
@@ -133,8 +130,7 @@ class UpdateAddressActivity : BaseActivity() {
                 Place.Field.LAT_LNG
             )
             val autoSearchIntent = Autocomplete.IntentBuilder(
-                AutocompleteActivityMode.FULLSCREEN,
-                fields
+                AutocompleteActivityMode.FULLSCREEN, fields
             ).build(this)
             startActivityForResult(autoSearchIntent, AUTOCOMPLETE_REQUEST_CODE2)
         }
@@ -164,9 +160,7 @@ class UpdateAddressActivity : BaseActivity() {
         try {
             val geocoder = Geocoder(this, Locale.getDefault())
             val addresses: List<Address> = geocoder.getFromLocation(
-                latitude!!,
-                longitude!!,
-                1
+                latitude!!, longitude!!, 1
             )
             if (addresses.isNotEmpty()) {
                 val address: Address = addresses[0]
@@ -175,6 +169,9 @@ class UpdateAddressActivity : BaseActivity() {
                 binding.etState.setText(address.adminArea?.toString())
                 binding.txtZipCode.setText(address.postalCode?.toString())
 
+
+                addressLatitude = latitude
+                addressLongitude = longitude
             }
         } catch (e: IOException) {
             Log.e("tag", e.localizedMessage)
@@ -201,8 +198,7 @@ class UpdateAddressActivity : BaseActivity() {
             }
         }
 
-        APIHandler(
-            this@UpdateAddressActivity,
+        APIHandler(this@UpdateAddressActivity,
             Request.Method.PUT,
             Constants.API.barber_address,
             params,
@@ -216,8 +212,8 @@ class UpdateAddressActivity : BaseActivity() {
                         this.address = address
                     }
                     sessionManager.userData = barber.getJsonString()
-                    if (isSellProduct){
-                        sessionManager.sellProducts=true
+                    if (isSellProduct) {
+                        sessionManager.sellProducts = true
                     }
                     finish()
                 }
@@ -225,8 +221,7 @@ class UpdateAddressActivity : BaseActivity() {
                 override fun onFail(error: String?) {
                     progressHUD.dismiss()
                     Toast.makeText(
-                        this@UpdateAddressActivity,
-                        error, Toast.LENGTH_LONG
+                        this@UpdateAddressActivity, error, Toast.LENGTH_LONG
                     ).show()
                 }
             })
