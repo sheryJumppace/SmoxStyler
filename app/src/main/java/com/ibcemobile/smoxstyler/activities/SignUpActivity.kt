@@ -15,8 +15,8 @@ import com.ibcemobile.smoxstyler.manager.Constants
 import com.ibcemobile.smoxstyler.model.type.UserType
 
 class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
-//        private var isPhoneVerified = false
-    private var isPhoneVerified = true
+        private var isPhoneVerified = false
+//    private var isPhoneVerified = true
     var userType: String = UserType.Barber.toString()
     lateinit var binding: ActivitySignUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +31,9 @@ class SignUpActivity : BaseLoginActivity(), View.OnClickListener {
         binding.txtPhone.setOnClickListener(this)
         binding.txtLogin.setOnClickListener(this)
 
-        binding.txtPhone.setText("+923463885110")
+//        binding.txtPhone.setText("+923463885110")
         binding.txtPhone.setOnClickListener {
-//            doPhoneNumberVerification()
+            doPhoneNumberVerification()
         }
         binding.imageView4.setOnClickListener {
             binding.eyeOff.visibility = View.VISIBLE

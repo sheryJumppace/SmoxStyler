@@ -36,11 +36,11 @@ import com.ibcemobile.smoxstyler.viewmodels.UserViewModel
 import org.json.JSONObject
 
 
-
 class MainActivity : BaseActivity(), NavItemAdapter.MyItemClickListener {
     companion object {
         const val TAG: String = "MainActivity"
     }
+
     private lateinit var navHostFragment: Fragment
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
@@ -82,10 +82,7 @@ class MainActivity : BaseActivity(), NavItemAdapter.MyItemClickListener {
         binding.navHeader.txtEmail.text = app.currentUser.email
 
         loadCircleImage(
-            binding.navHeader.styler,
-            Constants.downloadUrl(app.currentUser.image),
-            null,
-            true
+            binding.navHeader.styler, Constants.downloadUrl(app.currentUser.image), null, true
         )
         toolTips()
         darkTheme()
@@ -177,17 +174,14 @@ class MainActivity : BaseActivity(), NavItemAdapter.MyItemClickListener {
 
         try {
             FirebaseMessaging.getInstance().token.addOnCompleteListener {
-                if (it.isComplete) {
+                if (it != null && it.result != null && it.isComplete) {
                     SessionManager.getInstance(applicationContext).deviceToken =
                         it.result.toString()
                     val jsonObject = JsonObject()
                     jsonObject.addProperty("device_token", it.result.toString())
                     jsonObject.addProperty("type", ANDROID)
                     userViewModel.updateProfile(
-                        this,
-                        progressHUD,
-                        Constants.API.user_device,
-                        jsonObject
+                        this, progressHUD, Constants.API.user_device, jsonObject
                     )
                 }
 
@@ -270,8 +264,7 @@ class MainActivity : BaseActivity(), NavItemAdapter.MyItemClickListener {
     private fun logoutCall() {
         val params = HashMap<String, String>()
         progressHUD.show()
-        APIHandler(
-            this,
+        APIHandler(this,
             Request.Method.GET,
             Constants.API.logout,
             params,
@@ -284,13 +277,11 @@ class MainActivity : BaseActivity(), NavItemAdapter.MyItemClickListener {
                 override fun onFail(error: String?) {
                     progressHUD.dismiss()
                     Toast.makeText(
-                        this@MainActivity,
-                        error, Toast.LENGTH_LONG
+                        this@MainActivity, error, Toast.LENGTH_LONG
                     ).show()
                 }
 
-            }
-        )
+            })
 
     }
 
